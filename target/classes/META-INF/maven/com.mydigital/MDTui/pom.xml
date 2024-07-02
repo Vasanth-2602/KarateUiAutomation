@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+	xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.mydigital</groupId>
+	<artifactId>MDTui</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>MDTui</name>
+	<!-- FIXME change it to the project's website -->
+	<url>http://www.example.com</url>
+	<properties>
+		<MDTui-artifactId>MDTui</MDTui-artifactId>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+	</properties>
+	<dependencies>
+		<!-- https://mvnrepository.com/artifact/com.intuit.karate/karate-core -->
+		<dependency>
+			<groupId>com.intuit.karate</groupId>
+			<artifactId>karate-core</artifactId>
+			<version>1.4.1</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.intuit.karate/karate-apache -->
+		<dependency>
+			<groupId>com.intuit.karate</groupId>
+			<artifactId>karate-apache</artifactId>
+			<version>0.9.6</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.intuit.karate/karate-ui -->
+		<dependency>
+			<groupId>com.intuit.karate</groupId>
+			<artifactId>karate-ui</artifactId>
+			<version>0.9.5.RC3</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.intuit.karate/karate-junit5 -->
+		<dependency>
+			<groupId>com.intuit.karate</groupId>
+			<artifactId>karate-junit5</artifactId>
+			<version>1.4.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.junit</groupId>
+			<artifactId>junit5-engine</artifactId>
+			<version>5.0.0-ALPHA</version>
+		</dependency>
+		<!--
+		https://mvnrepository.com/artifact/net.masterthought/cucumber-reporting -->
+		<dependency>
+			<groupId>net.masterthought</groupId>
+			<artifactId>cucumber-reporting</artifactId>
+			<version>5.7.7</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.intuit.karate/karate-robot -->
+		<dependency>
+			<groupId>com.intuit.karate</groupId>
+			<artifactId>karate-robot</artifactId>
+			<version>1.4.1</version>
+		</dependency>
+
+	</dependencies>
+</project>
