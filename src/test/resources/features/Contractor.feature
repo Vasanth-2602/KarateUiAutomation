@@ -1,7 +1,7 @@
 Feature: Contractor screen
 
   Background:
-    #* configure driver = karate.get('driver') ? { type: 'chrome', start: true, stop: false, showDriverLog: true } : karate.get('driver')
+  
     * def generateRandomHumanName = call read('classpath:karate-config.js')
     * def randomName = generateRandomHumanName
     * def randomFirstName = randomName.firstName
