@@ -3,9 +3,14 @@ Feature: MDT login page
   Background: 
     * def envConfig = call read('classpath:env.js')
     * configure driver = envConfig.driverConfig
-    * def credentials = envConfig.Contractorlogin
-    * def environment = credentials.environment
+    * def credentials = envConfig.Gate1
+    * def environment = 'Gate1'
+    * print environment
 
+    # Log the environment variable
+    * print 'Environment:', environment
+    * karate.log('Environment in Background:', environment)
+    
   @reg
   Scenario: Valid login credentials
     Given driver credentials.baseURL
@@ -21,22 +26,20 @@ Feature: MDT login page
     * delay(500)
     When click('button[type=submit]')
     * waitUntil("document.readyState == 'complete'")
-    #* eval
-      #"""
-      #if (environment == 'Contractorlogin') {
-        #karate.log('Calling Contractorlogin.feature');
-        #karate.call('classpath:Contractorlogin.feature');
-      #} else {
-        #karate.log('Calling Contractor.feature');
-        #karate.call('classpath:Contractor.feature');
-      #}
-      #"""
-#
-  #* if (environment == 'Contractorlogin') karate.callSingle('Contractorlogin.feature')
-  #* if (environment != 'Contractorlogin') karate.callSingle('Contractor.feature')
-  * karate.callSingle('Contractorlogin.feature')
-  #* karate.abort()
-  
+    * delay(1000)
+    
+   #feature call based on env chosen
+    * eval
+      """
+      if (environment == 'Contractorlogin') {
+        karate.log('Calling features/Contractorlogin.feature');
+        karate.callSingle('classpath:features/Contractorlogin.feature');
+      } else {
+        karate.log('Calling features/Client.feature');
+        karate.callSingle('classpath:features/Client.feature');
+      }
+      """
+
   @invalid
   Scenario: Invalid login credentials
     Given driver baseUrl
