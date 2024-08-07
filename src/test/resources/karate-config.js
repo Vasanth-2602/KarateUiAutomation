@@ -9,17 +9,29 @@
 }*/
 
 function generateRandomHumanName() {
-    var firstNames = ['Alice', 'Bob', 'Charlie', 'David', 'Eva', 'Frank', 'Grace', 'Henry', 'Ivy', 'Jack'];
-    var surnames = ['Smith', 'Johnson', 'Williams', 'Jones', 'Brown', 'Davis', 'Miller', 'Wilson', 'Moore', 'Taylor'];
-
+   var firstNames = ['Alice', 'Bob', 'Charlie', 'David', 'Eva', 'Frank', 'Grace', 'Henry', 'Ivy', 'Jack', 
+                      'Kimberly', 'Michael', 'Natalie', 'Oliver', 'Patricia', 'Quentin', 'Rachel', 'Steven', 
+                      'Teresa', 'Victor'];
+    var surnames = ['Smith', 'Johnson', 'Williams', 'Jones', 'Brown', 'Davis', 'Miller', 'Wilson', 'Moore', 
+                    'Taylor', 'Anderson', 'Clark', 'Lewis', 'Walker', 'Harris', 'Young', 'King', 'Wright', 
+                    'Lopez', 'Hill'];
+                    
     var randomFirstName = firstNames[Math.floor(Math.random() * firstNames.length)];
     var randomSurname = surnames[Math.floor(Math.random() * surnames.length)];
     var fullName = randomFirstName + ' ' + randomSurname;
+    var clientName = 'Client ' +  fullName;
+    var clientUserName = 'ClientUser' + randomFirstName;
+    var supplierName = 'Supplier ' + fullName;
+    
 
     return {
         firstName: randomFirstName,
         surname: randomSurname,
-        fullName: fullName
+        fullName: fullName,
+        clientName: clientName,
+        clientUserName: clientUserName,
+        supplierName: supplierName
+        
     };
 }
 
