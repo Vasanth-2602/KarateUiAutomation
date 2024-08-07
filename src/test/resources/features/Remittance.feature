@@ -40,18 +40,18 @@ Feature: Remittance Screeen
     * delay(3000)
     
     #Run Batch
-    When click("//td[@aria-colindex='12']//img[@title='Run Batch']")
+    When click("//td[@aria-colindex='13']//img[@title='Run Batch']")
     * if (exists("//span[text()='Run Batch!']")) click("//button[@aria-label='Yes']")
     * delay(6000)
     
     #PDF Download
-    * click("//td[@aria-colindex='12']//img[@title='Pdf Bulk Download']")
+    * click("//td[@aria-colindex='13']//img[@title='Pdf Bulk Download']")
     * delay(2000)
     * if (exists("//span[text()='Large PDF Download Warning!']")) click("//button[@aria-label='Yes']")
     * delay(6000)
     
     #Bulk email sent
-    * click("//td[@aria-colindex='12']//img[@title='Send Email']")
+    * click("//td[@aria-colindex='13']//img[@title='Send Email']")
     * delay(2000)
     * if (exists("//span[text()='Purchase Invoice Email Warning!']")) click("//button[@aria-label='Yes']")
     
