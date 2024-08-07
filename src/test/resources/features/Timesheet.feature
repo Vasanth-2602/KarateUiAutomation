@@ -7,7 +7,8 @@ Feature: Timesheet screen
     * click("//p[text()='Create Manual Timesheet']")
     * delay(2000)
     * def ContractorName = karate.get('ContfullName')
-    * def filePath = '../FileUploadTest/Dummy PDF.pdf'
+    * def UploadfilePath = '../FileUploadTest/Dummy PDF.pdf'
+    
   #@reg
   Scenario: Create Manual Timesheet
     When mouse().move("//*[@id='candidate_id']")
@@ -17,17 +18,17 @@ Feature: Timesheet screen
     Then click("//li[@index='0']")
     * delay(2000)
     When mouse().move("//*[@id='assignment_id']").click()
-    * delay(2000)
-    And click("//li[@index='0']")
+    #* delay(2000)
+    #And click("//li[@index='0']")
     * delay(3000)
     When mouse().move("//button[text()='Add Attachment(s)']").click()
-    * delay(3000)
-    * driver.inputFile('#k-fileselect-input-2', filePath)
+    * delay(5000)
+    * driver.inputFile('#k-fileselect-input-3', UploadfilePath)
     * delay(5000)
     And match driver.text("//div[text()='Dummy PDF.pdf']") == 'Dummy PDF.pdf'
     Then click("//button[@aria-label='Close']")
     * delay(2000)
-    When mouse().move("//*[@id='rate_type']").click()
+    When mouse().move("//kendo-combobox[@textfield='rate_name']").click()
     And click("//li[@index='0']")
     * delay(1000)
     When mouse().move("//*[@id='hours']").click()
