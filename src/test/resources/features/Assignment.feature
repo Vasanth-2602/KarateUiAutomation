@@ -6,15 +6,20 @@ Feature: Assignment screen
     * karate.log('Clicked on Assignments')
     * click("//p[text()='Create Assignment']")
     * delay(500)
-    * def storedFullName = karate.get('ContfullName')
-    #* def tags = karate.get('tags')
+    * def ContractorFullName = karate.get('ContfullName')
+    * def ClientAssignment = karate.get('ClientsfullName')
+
 
   #@reg
   Scenario: Create Assignment
     # Client selection
-    Then click("//*[@id='client_id']/kendo-combobox/button")
+    * waitFor("//input[@placeholder='Select Client']")
+    Then input("//input[@placeholder='Select Client']", ClientAssignment,30)
+    * delay(1000)
     And click("//li[@index='0']")
+    * delay(1000)
     Then click("//*[@id='client_location']/button")
+    * delay(1000)
     And click("//li[@index='0']")
     Then click("//*[@id='use_other_po']/span[1]")
     
@@ -27,7 +32,7 @@ Feature: Assignment screen
     * waitFor("//*[@id='ca_end_date']")
     When mouse().move("//*[@id='ca_end_date']").click()
     And click("//button[text()=' Today ']")
-    Then input("//*[@id='candidate']//input", storedFullName)
+    Then input("//input[@placeholder='Select Contractor']", ContractorFullName, 50)
     Then click("//li[@index='0']")
     
     # Select today's date for Timesheet Start Date
