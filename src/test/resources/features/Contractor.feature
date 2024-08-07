@@ -6,12 +6,19 @@ Feature: Contractor screen
     * def randomName = generateRandomHumanName
     * def randomFirstName = randomName.firstName
     * def randomSurname = randomName.surname
+    * def supplier = karate.get('supplierNames')
     * def ContfullName = randomName.fullName
+    
 
   #@reg
   Scenario: Create and Complete Contractor Profile after login
-    #* def driverState = karate.get('driver')  // Get the passed driver state
-    Given click("//button[@type='button'][2]")
+    
+    * click("//img[@title='Menu']")
+    * delay(1000)
+    * click("//p[text()='Contractors']")
+    * delay(1000)
+    * click("//button[normalize-space(text())='Create']")
+    * delay(1000)
     And waitFor("//*[@id='title']/button")
     Then click("//*[@id='title']/button")
     And waitFor("//li[@index='0']")
@@ -22,11 +29,15 @@ Feature: Contractor screen
     Then input("//*[@id='surname']", randomSurname)
     And waitFor("//*[@id='gender']/button")
     Then click("//*[@id='gender']/button")
-    And waitFor("//li[@index='0']")
+    * delay(1000)
     Then click("//li[@index='0']")
-    And click("//*[@id='supplier']/kendo-combobox/button")
+    * delay(3000)
+    And input("//input[@placeholder='Select Supplier']", supplier, 30)
+    * delay(1000)
     Then click("//li[@index='0']")
+    * delay(1000)
     Then click("//button[@type='submit']")
+    * delay(1000)
     #* karate.abort()
     
     # Contact info tab
@@ -36,7 +47,7 @@ Feature: Contractor screen
     # Wait for email address input to be visible and input the email
     Then waitFor("//*[@id='email_address']")
     * delay(1000)
-    And input("//*[@id='email_address']", randomFirstName + randomSurname + '@testing.mydigitalaccounts.com', 50)
+    And input("//*[@id='email_address']", randomFirstName + randomSurname + '@testing.quartzbysapphire.com', 50)
     
     # Click the send invitation button
     And click("//*[@id='send_invitation']")
